@@ -1,0 +1,10 @@
+#!/bin/sh
+# busybox的reboot halt poweroff等命令需要busybox的init起来才能正常工作
+export PATH=/bin:/usr/bin:/sbin:/usr/sbin
+
+mount -t proc proc /proc
+mount -t sysfs sysfs /sys
+mount -t devtmpfs udev /dev
+
+# sh作为init, 并且成为新的会话首领, stdio连接到tty1
+exec setsid sh -c 'exec sh -i <>/dev/tty1 >&0 2>&1'

@@ -1,0 +1,7 @@
+::sysinit:/bin/echo "sysinit!!!!"
+
+::sysinit:/bin/mount -t proc proc /proc
+::sysinit:/bin/mount -t sysfs sysfs /sys
+::sysinit:/bin/mount -t devtmpfs udev /dev
+
+::respawn:-/bin/sh
