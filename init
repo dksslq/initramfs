@@ -2,9 +2,7 @@
 # busybox的reboot halt poweroff等命令需要busybox的init起来才能正常工作
 export PATH=/bin:/usr/bin:/sbin:/usr/sbin
 
-mkdir -p /proc
-mkdir -p /sys
-mkdir -p /dev
+mkdir -p /proc /sys /dev
 
 mount -t proc proc /proc
 mount -t sysfs sysfs /sys
